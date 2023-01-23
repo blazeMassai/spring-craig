@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head.html :: head">
+
+</head>
+<body>
+
+
+
+<header th:replace="fragments/header.html :: header">
+
+</header>
+
+
+<article>
+    <div class="container text-center">
+        <h1>Enjoy Fresh!</h1>
+
+        <figure>
+            <img class="my-img img-fluid" th:src="@{/img/taco.jpg}" alt="" />
+            <figcaption class="imgcaption">
+                Real fresh yoo...!!
+            </figcaption>
+        </figure>
+    </div>
+</article>
+
+
+<script type="javascript" th:href="@{/js/jquery-2.2.4.min.js}"></script>
+<script type="javascript" th:href="@{/js/bootstrap.min.js}"></script>
+<script type="javascript" th:href="@{/js/app.js}"></script>
+</body>
+</html>

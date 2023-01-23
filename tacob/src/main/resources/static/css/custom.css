@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
+
+:root {
+  --background: rgba(205, 92, 92, .85);
+  --brand-color: #6495ED;
+    --gen-padding: 3px;
+    --gen-margin: .63rem;
+    --gen-bord-rad: 3px;
+    --gen-backg-color: rgba( 248, 249, 249 , 0.2);
+   --var-color: rgb(0, 238, 255);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: 'Work Sans', sans-serif !important;
+	font-weight: 400;
+  color: #000;
+  /*height: 100%;*/
+
+}
+
+/* navigation styles start here */
+
+header {
+  background: var(--background);
+  text-align: center;
+  z-index: 999;
+  width: 100%;
+  position:sticky;
+  top: 0;
+  padding: 4px;
+}
+.logo{
+  color: #fff;
+}
+.logo a{
+  text-decoration: None;
+  color: #fff;
+}
+
+.logo a:hover{
+  text-decoration: None;
+  color: #fff;
+}
+
+/* changed this from the tutorial video to
+   allow it to gain focus, making it tabbable */
+.nav-toggle {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.nav-toggle:focus ~ .nav-toggle-label {
+  /*outline: 3px solid rgba(137, 196, 244, .75);*/
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+  top: 7px;
+}
+
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: var(--background);
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+.nav-toggle:checked ~ nav {
+  transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+@media screen and (min-width: 800px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+    position:sticky;
+    top: 0;
+    padding: 3px;
+  }
+
+  .logo {
+    grid-column: 1 / 3;
+    color: #fff;
+  }
+
+  nav {
+    /* all: unset; this causes issues with Edge, since it's unsupported */
+
+    /* the following lines are not from my video, but add Edge support */
+    position: relative;
+    text-align: left;
+    transition: none;
+    transform: scale(1,1);
+    background: none;
+    top: initial;
+    left: initial;
+    /* end Edge support stuff */
+
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+  }
+
+  nav ul {
+    display: flex;
+  }
+
+  nav li {
+    margin-left: 3em;
+    margin-bottom: 0;
+  }
+
+  nav a {
+    opacity: 1;
+    position: relative;
+  }
+
+  nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background: black;
+    position: absolute;
+    top: -.75em;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+  }
+
+  nav a:hover::before {
+    transform: scale(1,1);
+  }
+}
+
+ .container {
+    /*box-shadow: 0 0 3em rgba(0,0,0,.15);*/
+  }
+
+  .title {
+    margin: 0 0 .5em;
+    // text-transform: uppercase;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 5rem;
+    color: #ee6352;
+    line-height: 1;
+  }
+
+
+.centering {
+    background: white;
+    padding: 3em;
+    box-shadow: 0 0 3em rgba(0,0,0,.15);
+  }
+
+  .title {
+    margin: 0 0 .5em;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 4rem;
+    color: #ee6352;
+    line-height: 1;
+  }
+
+  .mycolor{
+    background: var(--background);
+  }
+
+/*table css*/
+
+.pagination {
+  margin: 0;
+}
+
+.pagination li:hover{
+    cursor: pointer;
+}
+
+.header_wrap {
+  padding:30px 0;
+}
+.num_rows {
+  width: 20%;
+  float:left;
+}
+.tb_search{
+  width: 20%;
+  float:right;
+}
+.pagination-container {
+  width: 70%;
+  float:left;
+}
+
+.rows_count {
+  width: 20%;
+  float:right;
+  text-align:right;
+  color: #999;
+}
+
+.pagination-container nav ul li {
+  display: inline-block;
+    width: 1.8em;
+    height: 1.8em;
+    line-height: 1.8;
+    text-align: center;
+    cursor: pointer;
+    background: #191919;
+    color: #ccc;
+    margin-right: 0.5em;
+}
+
+.pagination-container  ul li.active  {
+  background: #fff;
+  color:#191919;
+  font-weight:bold;
+  text-align:center;
+}
+
+article {
+  margin: var(--gen-margin);
+  background-color: var(--gen-backg-color);
+  border-radius: var(--gen-bord-rad);
+}
+article .cont-wrapper {
+  padding: 6px;
+}
+
+.my-img {
+  /*max-width: 100%;*/
+  width: 600px;
+}
+
+.my-btn {
+  background-color: var(--background)!important;
+  color: white;
+}
+
+.btn-custom{
+  background: var(--background) !important;
+  color: #fff !important;
+}
+
+.btn-custom:hover, .btn-custom:focus, .btn-custom:active {
+  -webkit-animation-name: btn-custom;
+  animation-name: btn-custom;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+/*woble button css*/
+/* Pulse */
+@-webkit-keyframes btn-custom {
+  25% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  75% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+@keyframes btn-custom {
+  25% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  75% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}

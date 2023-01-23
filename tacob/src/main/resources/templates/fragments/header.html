@@ -1,0 +1,14 @@
+<header th:fragment="header">
+    <h1 class="logo"><a href="/">Chop</a></h1>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a  th:href="@{/design}">Design Yours</a></li>
+            <li><a th:href="@{/contact}">Contact</a></li>
+        </ul>
+    </nav>
+    <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+    </label>
+</header>
